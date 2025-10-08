@@ -9,12 +9,14 @@ Este proyecto tiene como objetivo desarrollar un modelo de Machine Learning para
 Se utiliza el dataset **BRFSS 2015** del CDC.
 
 ## Estructura del proyecto
+```
 TFM/
-├─ src/ # Scripts de transformación y preprocesamiento de datos
-├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
-├─ data/ # Referencias a los datos originales (no se incluyen archivos grandes)
-├─ README.md # Este archivo
-└─ .gitignore # Archivos ignorados
+├─ src/          # Scripts de transformación y preprocesamiento de datos
+├─ notebooks/    # Notebooks de análisis exploratorio y pruebas de modelos
+├─ data/         # Referencias a los datos originales (no se incluyen archivos grandes)
+├─ README.md     # Este archivo
+└─ .gitignore    # Archivos ignorados
+```
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
@@ -35,6 +37,7 @@ Variables de ruta o enlaces deben ser ajustadas según el entorno del colaborado
 - Revisar los cambios de los compañeros antes de integrarlos.
 
 ## Autor
-Jesús Rodríguez
-Rafael Risco
+
+Jesús Rodríguez  
+Rafael Risco  
 Cristina Crespo
