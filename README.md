@@ -3,7 +3,6 @@
 ## Descripción
 Este proyecto tiene como objetivo desarrollar un modelo de Machine Learning para clasificar individuos en:
 - Diabetes
-- Prediabetes
 - No diabetes
 
 Se utiliza el dataset **BRFSS 2015** del CDC.
