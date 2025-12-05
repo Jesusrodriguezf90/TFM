@@ -10,11 +10,44 @@ Se utiliza el dataset **BRFSS 2015** del CDC.
 ## Estructura del proyecto
 ```
 TFM/
-├─ src/          # Scripts de transformación y preprocesamiento de datos
-├─ notebooks/    # Notebooks de análisis exploratorio y pruebas de modelos
 ├─ data/         # Referencias a los datos originales (no se incluyen archivos grandes)
-├─ README.md     # Este archivo
-└─ .gitignore    # Archivos ignorados
+├─ notebooks/    # Notebooks de análisis exploratorio y pruebas de modelos
+│   ├─ data_preprocessing.ipynb
+│   ├─ model_training_v1.ipynb
+│   ├─ model_training_v2.ipynb
+│   └─ transform_xpt_to_csv.ipynb
+│
+├─ src/          # Scripts de transformación y preprocesamiento de datos
+│   ├─ preprocessing/
+│   │        ├─ __init__.py
+│   │        ├─ data_preprocessing.py
+│   │        ├─ preprocessing_pipeline.py
+│   │        └─ transform_xpt_to_csv.py
+│   │
+│   ├─ models/
+│   │        ├─ __init__.py
+│   │        ├─ train_model_lgbm.py
+│   │        └─ lgbm_diabetes_pipeline.pkl
+│   │
+│   └─  api/
+│            ├─ __init__.py
+│            ├─ main.py
+│            ├─ load_model.py
+│            └─ schemas.py
+│
+├─ web/
+│      ├─ index.html
+│      ├─ styles.css
+│      └─ script.js
+│
+├─ requirements/
+│            ├─ requirements_api.txt
+│            └─ requirements_dev.txt
+│
+├─ README.md      # Este archivo
+└─ .gitignore     # Archivos ignorados
+
+
 ```
 
 ## Datos
