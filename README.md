@@ -10,7 +10,6 @@ Se utiliza el dataset **BRFSS 2015** del CDC.
 ## Estructura del proyecto
 ```
 TFM/
-├─ data/         # Referencias a los datos originales (no se incluyen archivos grandes)
 ├─ notebooks/    # Notebooks de análisis exploratorio y pruebas de modelos
 │   ├─ data_preprocessing.ipynb
 │   ├─ model_training_v1.ipynb
