@@ -17,6 +17,7 @@ TFM/
 │   └─ transform_xpt_to_csv.ipynb
 │
 ├─ src/          # Scripts de transformación y preprocesamiento de datos
+│   ├─ __init__.py
 │   ├─ preprocessing/
 │   │        ├─ __init__.py
 │   │        ├─ data_preprocessing.py
