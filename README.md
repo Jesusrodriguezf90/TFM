@@ -49,6 +49,7 @@ TFM/
 │
 ├─ README.md # Este archivo
 └─ .gitignore # Archivos y carpetas ignorados por Git
+```
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
