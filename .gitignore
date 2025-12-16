@@ -1,5 +1,16 @@
-*.csv
-*.xpt
-*.xlsx
-*.docx
+# Archivos de datos originales
+data/raw_*.csv
+data/raw_*.xpt
+data/raw_*.zip
+
+# Entornos y compilados
+.venv/
 __pycache__/
+
+# Modelos y checkpoints (actualmente no se tiene .h5 ni .ckpt)
+*.pkl
+*.h5
+*.ckpt
+
+# Variables de entorno
+.env

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Diabetes Prediction API</h1>
+
+<form id="prediction-form">
+    <h2>Variables de entrada</h2>
+
+    <!-- Categorical Nominal -->
+    <label for="BPHIGH4">¿Alguna vez un médico, enfermero u otro profesional de la salud le ha dicho que tiene presión arterial alta?</label>
+    <select id="BPHIGH4" name="BPHIGH4" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">Sí, solo embarazo</option>
+        <option value="3">No</option>
+        <option value="4">Borderline / pre-hipertensivo</option>
+    </select>
+
+    <label for="_RACE">Raza</label>
+    <select id="_RACE" name="_RACE" required>
+        <option value="">Seleccione</option>
+        <option value="1">Blanco</option>
+        <option value="2">Negro</option>
+        <option value="3">Indígena americano o nativo de Alaska</option>
+        <option value="4">Asiático</option>
+        <option value="5">Nativo de Hawái u otro isleño del Pacífico</option>
+        <option value="6">Otra raza</option>
+        <option value="7">Multirracial</option>
+        <option value="8">Hispano</option>
+    </select>
+
+    <!-- Binary -->
+    <label for="BPMEDS">¿Está tomando actualmente algún medicamento para la presión arterial alta?</label>
+    <select id="BPMEDS" name="BPMEDS" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="BLOODCHO">¿Alguna vez te has revisado el colesterol?</label>
+    <select id="BLOODCHO" name="BLOODCHO" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="HAVARTH3">¿Alguna vez le han dicho que tiene algún tipo de artritis, artritis reumatoide, gota, lupus o fibromialgia?</label>
+    <select id="HAVARTH3" name="HAVARTH3" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="QLACTLM2">¿Está usted limitado de alguna manera en alguna actividad debido a problemas físicos, mentales o emocionales?</label>
+    <select id="QLACTLM2" name="QLACTLM2" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="USEEQUIP">¿Tiene actualmente algún problema de salud que requiera el uso de equipo especial, como bastón, silla de ruedas, cama especial o teléfono especial?</label>
+    <select id="USEEQUIP" name="USEEQUIP" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="BLIND">¿Es usted ciego o tiene serias dificultades para ver, incluso cuando usa gafas?</label>
+    <select id="BLIND" name="BLIND" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="DECIDE">Debido a una condición física, mental o emocional, ¿tiene usted serias dificultades para concentrarse, recordar o tomar decisiones?</label>
+    <select id="DECIDE" name="DECIDE" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="DIFFWALK">¿Tiene usted serias dificultades para caminar o subir escaleras?</label>
+    <select id="DIFFWALK" name="DIFFWALK" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="DIFFALON">Debido a una condición física, mental o emocional, ¿tiene usted dificultad para hacer recados solo, como visitar al médico o ir de compras?</label>
+    <select id="DIFFALON" name="DIFFALON" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="DIFFDRES">¿Tiene dificultad para vestirse o bañarse?</label>
+    <select id="DIFFDRES" name="DIFFDRES" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="SMOKE100">¿Has fumado al menos 100 cigarrillos en toda tu vida?</label>
+    <select id="SMOKE100" name="SMOKE100" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="ADDEPEV2">¿Alguna vez te han dicho que tienes un trastorno depresivo, incluyendo depresión, depresión mayor, distimia o depresión menor?</label>
+    <select id="ADDEPEV2" name="ADDEPEV2" required>
+        <option value="">Seleccione</option>
+        <option value="1">Sí</option>
+        <option value="2">No</option>
+    </select>
+
+    <label for="SEX">Sexo</label>
+    <select id="SEX" name="SEX" required>
+        <option value="">Seleccione</option>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+    </select>
+
+    <!-- Ordinal -->
+    <label for="GENHLTH">Diría que en general su salud es:</label>
+    <select id="GENHLTH" name="GENHLTH" required>
+        <option value="">Seleccione</option>
+        <option value="1">Excelente</option>
+        <option value="2">Muy bueno</option>
+        <option value="3">Bueno</option>
+        <option value="4">Regular</option>
+        <option value="5">Malo</option>
+    </select>
+
+    <label for="_PACAT1">Categorías de actividad física</label>
+    <select id="_PACAT1" name="_PACAT1" required>
+        <option value="">Seleccione</option>
+        <option value="1">Muy activo</option>
+        <option value="2">Activo</option>
+        <option value="3">Insuficientemente activo</option>
+        <option value="4">Inactivo</option>
+    </select>
+
+    <label for="_AGEG5YR">Grupo de edad</label>
+    <select id="_AGEG5YR" name="_AGEG5YR" required>
+        <option value="">Seleccione</option>
+        <option value="1">18-24 años</option>
+        <option value="2">25-29 años</option>
+        <option value="3">30-34 años</option>
+        <option value="4">35-39 años</option>
+        <option value="5">40-44 años</option>
+        <option value="6">45-49 años</option>
+        <option value="7">50-54 años</option>
+        <option value="8">55-59 años</option>
+        <option value="9">60-64 años</option>
+        <option value="10">65-69 años</option>
+        <option value="11">70-74 años</option>
+        <option value="12">75-79 años</option>
+        <option value="13">80 años o más</option>
+    </select>
+
+    <label for="_BMI5CAT">Categorías del índice de masa corporal (IMC)</label>
+    <select id="_BMI5CAT" name="_BMI5CAT" required>
+        <option value="">Seleccione</option>
+        <option value="1">Bajo peso</option>
+        <option value="2">Peso normal</option>
+        <option value="3">Sobrepeso</option>
+        <option value="4">Obeso</option>
+    </select>
+
+    <!-- Numeric discretized -->
+    <label for="EXEROFT1">Frecuencia semanal de ejercicio</label>
+    <select id="EXEROFT1" name="EXEROFT1" required>
+        <option value="">Seleccione</option>
+        <option value="0.0">No realiza ejercicio</option>
+        <option value="1.0">1 vez por semana</option>
+        <option value="2.0">2 veces por semana</option>
+        <option value="3.0">3 veces por semana</option>
+        <option value="4.0">4 veces por semana</option>
+        <option value="5.0">5 veces por semana</option>
+        <option value="6.0">6 veces por semana</option>
+        <option value="7.0">Todos los días</option>
+    </select>
+
+    <label for="_FRUTSUM">Consumo diario de frutas (porciones/día)</label>
+    <select id="_FRUTSUM" name="_FRUTSUM" required>
+        <option value="">Seleccione</option>
+        <option value="0.0">Nunca</option>
+        <option value="0.5">Menos de 1 al día</option>
+        <option value="1.0">1 al día</option>
+        <option value="1.5">1.5 al día</option>
+        <option value="2.0">2 al día</option>
+        <option value="3.0">3 al día</option>
+        <option value="4.0">4 al día</option>
+        <option value="5.0">5 al día</option>
+        <option value="6.0">6 o más al día</option>
+    </select>
+
+    <label for="_VEGESUM">Consumo diario de vegetales (porciones/día)</label>
+    <select id="_VEGESUM" name="_VEGESUM" required>
+        <option value="">Seleccione</option>
+        <option value="0.0">Nunca</option>
+        <option value="0.5">Menos de 1 al día</option>
+        <option value="1.0">1 al día</option>
+        <option value="1.5">1.5 al día</option>
+        <option value="2.0">2 al día</option>
+        <option value="3.0">3 al día</option>
+        <option value="4.0">4 al día</option>
+        <option value="5.0">5 al día</option>
+        <option value="6.0">6 o más al día</option>
+    </select>
+
+    <button type="submit">Predecir</button>
+</form>
+
+<div id="result">
+    <h2>Resultado:</h2>
+    <p id="prediction">Aquí aparecerá la predicción</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
