@@ -12,42 +12,42 @@ Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) 
 
 ## Estructura del proyecto
 TFM/
-├─ notebooks/    # Notebooks de análisis exploratorio y pruebas de modelos
-│   ├─ data_preprocessing.ipynb
-│   ├─ model_training_v1.ipynb
-│   ├─ model_training_v2.ipynb
-│   └─ transform_xpt_to_csv.ipynb
+├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
+│ ├─ data_preprocessing.ipynb
+│ ├─ model_training_v1.ipynb
+│ ├─ model_training_v2.ipynb
+│ └─ transform_xpt_to_csv.ipynb
 │
-├─ src/          # Código fuente del proyecto (paquete Python)
-│   ├─ __init__.py
-│   ├─ preprocessing/
-│   │        ├─ __init__.py
-│   │        ├─ data_preprocessing.py
-│   │        ├─ preprocessing_pipeline.py
-│   │        └─ transform_xpt_to_csv.py
-│   │
-│   ├─ models/
-│   │        ├─ __init__.py
-│   │        ├─ train_model_lgbm.py
-│   │        └─ lgbm_diabetes_pipeline.pkl
-│   │
-│   └─ api/
-│            ├─ __init__.py
-│            ├─ main.py
-│            ├─ load_model.py
-│            └─ schemas.py
+├─ src/ # Código fuente del proyecto (paquete Python)
+│ ├─ init.py
+│ ├─ preprocessing/
+│ │ ├─ init.py
+│ │ ├─ data_preprocessing.py
+│ │ ├─ preprocessing_pipeline.py
+│ │ └─ transform_xpt_to_csv.py
+│ │
+│ ├─ models/
+│ │ ├─ init.py
+│ │ ├─ train_model_lgbm.py
+│ │ └─ lgbm_diabetes_pipeline.pkl
+│ │
+│ └─ api/
+│ ├─ init.py
+│ ├─ main.py
+│ ├─ load_model.py
+│ └─ schemas.py
 │
-├─ web/
-│      ├─ index.html
-│      ├─ styles.css
-│      └─ script.js
+├─ web/ # Archivos de la aplicación web
+│ ├─ index.html
+│ ├─ styles.css
+│ └─ script.js
 │
-├─ requirements/
-│            ├─ requirements_api.txt
-│            └─ requirements_dev.txt
+├─ requirements/ # Dependencias del proyecto
+│ ├─ requirements_api.txt
+│ └─ requirements_dev.txt
 │
-├─ README.md      # Este archivo
-└─ .gitignore     # Archivos ignorados
+├─ README.md # Este archivo
+└─ .gitignore # Archivos y carpetas ignorados por Git
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
