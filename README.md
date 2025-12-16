@@ -19,7 +19,11 @@ TFM/
 │   ├─ model_training_v2.ipynb
 │   └─ transform_xpt_to_csv.ipynb
 │
+<<<<<<< HEAD
 ├─ src/          # Código fuente del proyecto (paquete Python)
+=======
+├─ src/          # Scripts de transformación y preprocesamiento de datos
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 │   ├─ __init__.py
 │   ├─ preprocessing/
 │   │        ├─ __init__.py
@@ -32,7 +36,11 @@ TFM/
 │   │        ├─ train_model_lgbm.py
 │   │        └─ lgbm_diabetes_pipeline.pkl
 │   │
+<<<<<<< HEAD
 │   └─ api/
+=======
+│   └─  api/
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 │            ├─ __init__.py
 │            ├─ main.py
 │            ├─ load_model.py
@@ -50,7 +58,12 @@ TFM/
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 
+<<<<<<< HEAD
 ---
+=======
+
+```
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
