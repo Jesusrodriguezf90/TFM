@@ -11,6 +11,7 @@ El proyecto está diseñado siguiendo principios de **arquitectura modular y rep
 Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) desde la raíz del proyecto para asegurar la correcta resolución de imports absolutos y la reproducibilidad del flujo.
 
 ## Estructura del proyecto
+```
 TFM/
 ├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
 │ ├─ data_preprocessing.ipynb
@@ -62,7 +63,7 @@ data/cleaned_dataset.csv
 ### 1️. Preparación del entorno
 Instalar las dependencias necesarias (ejemplo entorno de desarrollo):
 
-```bash
+```
 pip install -r requirements/requirements_dev.txt
 ```
 
@@ -118,7 +119,7 @@ web/        # Archivos de la interfaz web
 
 - Para ejecutar correctamente los scripts dentro de `src/`, utilizar siempre:
 
-```bash
+```
 cd path/to/TFM
 python -m src.models.train_model_lgbm
 ```
@@ -131,7 +132,7 @@ Para usar el modelo entrenado en inferencia:
 
 1. Importar la función de carga del modelo:
 
-```python
+```
 from src.api.load_model import load_pipeline
 
 pipeline = load_pipeline("src/models/lgbm_diabetes_pipeline.pkl")
@@ -139,7 +140,7 @@ pipeline = load_pipeline("src/models/lgbm_diabetes_pipeline.pkl")
 
 2. Predecir con nuevos datos (DataFrame `X_new`):
 
-```python
+```
 y_pred = pipeline.predict(X_new)
 ```
 
