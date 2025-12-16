@@ -9,7 +9,6 @@ Se utiliza el dataset **BRFSS 2015** del CDC.
 
 El proyecto está diseñado siguiendo principios de **arquitectura modular y reproducible**, alineados con buenas prácticas utilizadas en entornos profesionales de Machine Learning.
 Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) desde la raíz del proyecto para asegurar la correcta resolución de imports absolutos y la reproducibilidad del flujo.
----
 
 ## Estructura del proyecto
 TFM/
@@ -50,8 +49,6 @@ TFM/
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 
----
-
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
 Las rutas o enlaces deben ajustarse según el entorno del colaborador.
@@ -59,8 +56,6 @@ Las rutas o enlaces deben ajustarse según el entorno del colaborador.
 El archivo final utilizado para el entrenamiento se espera en:
 
 data/cleaned_dataset.csv
-
----
 
 ## Uso
 
@@ -70,8 +65,6 @@ Instalar las dependencias necesarias (ejemplo entorno de desarrollo):
 ```bash
 pip install -r requirements/requirements_dev.txt
 ```
-
----
 
 ### 2️. Ejecución de scripts de entrenamiento
 
@@ -92,8 +85,6 @@ El pipeline entrenado se guarda automáticamente en:
 
 src/models/lgbm_diabetes_pipeline.pkl
 
----
-
 ### 3️. Notebooks
 Los notebooks en `notebooks/` se utilizan para:
 - Análisis exploratorio
@@ -101,8 +92,6 @@ Los notebooks en `notebooks/` se utilizan para:
 - Validación de decisiones de preprocessing y modelado
 
 No constituyen el flujo principal de entrenamiento en producción, sino soporte experimental.
-
----
 
 ## Contribución
 
@@ -136,8 +125,6 @@ python -m src.models.train_model_lgbm
 
 > **Nota:** El proyecto usa imports absolutos y ejecución como módulo para garantizar una arquitectura limpia y reproducible. La forma correcta de ejecución se documenta y automatiza, no se parchea dentro del código.
 
----
-
 ## Inferencia / API
 
 Para usar el modelo entrenado en inferencia:
@@ -157,8 +144,6 @@ y_pred = pipeline.predict(X_new)
 ```
 
 3. La API `src/api/main.py` permite exponer el modelo como servicio web si se desea.
-
----
 
 ## Diagrama de flujo básico
 
@@ -180,12 +165,8 @@ Pipeline Guardado (src/models/lgbm_diabetes_pipeline.pkl)
 Inferencia / API (src/api)
 ```
 
----
-
 ## Autor
 
 Jesús Rodríguez  
 Rafael Risco  
 Cristina Crespo
-
----
