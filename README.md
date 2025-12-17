@@ -12,6 +12,7 @@ Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) 
 
 ## Estructura del proyecto
 ```
+```
 TFM/
 ├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
 │ ├─ data_preprocessing.ipynb
@@ -19,37 +20,51 @@ TFM/
 │ ├─ model_training_v2.ipynb
 │ └─ transform_xpt_to_csv.ipynb
 │
-├─ src/ # Código fuente del proyecto (paquete Python)
-│ ├─ init.py
-│ ├─ preprocessing/
-│ │ ├─ init.py
-│ │ ├─ data_preprocessing.py
-│ │ ├─ preprocessing_pipeline.py
-│ │ └─ transform_xpt_to_csv.py
-│ │
-│ ├─ models/
-│ │ ├─ init.py
-│ │ ├─ train_model_lgbm.py
-│ │ └─ lgbm_diabetes_pipeline.pkl
-│ │
-│ └─ api/
-│ ├─ init.py
-│ ├─ main.py
-│ ├─ load_model.py
-│ └─ schemas.py
+<<<<<<< HEAD
+├─ src/          # Código fuente del proyecto (paquete Python)
+=======
+├─ src/          # Scripts de transformación y preprocesamiento de datos
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
+│   ├─ __init__.py
+│   ├─ preprocessing/
+│   │        ├─ __init__.py
+│   │        ├─ data_preprocessing.py
+│   │        ├─ preprocessing_pipeline.py
+│   │        └─ transform_xpt_to_csv.py
+│   │
+│   ├─ models/
+│   │        ├─ __init__.py
+│   │        ├─ train_model_lgbm.py
+│   │        └─ lgbm_diabetes_pipeline.pkl
+│   │
+<<<<<<< HEAD
+│   └─ api/
+=======
+│   └─  api/
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
+│            ├─ __init__.py
+│            ├─ main.py
+│            ├─ load_model.py
+│            └─ schemas.py
 │
 ├─ web/ # Archivos de la aplicación web
 │ ├─ index.html
 │ ├─ styles.css
 │ └─ script.js
 │
-├─ requirements/ # Dependencias del proyecto
-│ ├─ requirements_api.txt
-│ └─ requirements_dev.txt
+├─ requirements/
+│            ├─ requirements_api.txt
+│            └─ requirements_dev.txt
 │
-├─ README.md # Este archivo
-└─ .gitignore # Archivos y carpetas ignorados por Git
+├─ README.md      # Este archivo
+└─ .gitignore     # Archivos ignorados
+
+<<<<<<< HEAD
+---
+=======
+
 ```
+>>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
@@ -61,20 +76,22 @@ data/cleaned_dataset.csv
 
 ## Uso
 
-### 1️. Preparación del entorno
+### 1️⃣ Preparación del entorno
 Instalar las dependencias necesarias (ejemplo entorno de desarrollo):
 
-```
+```bash
 pip install -r requirements/requirements_dev.txt
 ```
 
-### 2️. Ejecución de scripts de entrenamiento
+---
+
+### 2️⃣ Ejecución de scripts de entrenamiento
 
 Los scripts dentro de `src/` están pensados para ejecutarse **como módulos de Python**, desde la raíz del proyecto (`TFM/`).
 
 Por ejemplo, para entrenar el modelo LightGBM:
 
-```bash
+```
 cd path/to/TFM
 python -m src.models.train_model_lgbm
 ```
