@@ -53,16 +53,14 @@ TFM/
 ```
 
 ## Datos
-Los datos originales son grandes y se almacenan externamente (Google Drive).  
-Las rutas o enlaces deben ajustarse según el entorno del colaborador.
-
-El archivo final utilizado para el entrenamiento se espera en:
+Los datos originales son grandes y se almacenan externamente (Google Drive). Las rutas o enlaces deben ajustarse según el entorno del colaborador.
+El archivo final utilizado para el entrenamiento estará disponible en:
 
 data/cleaned_dataset.csv
 
 ## Uso
 
-### 1️⃣ Preparación del entorno
+### 1️. Preparación del entorno
 
 Dependiendo del entorno de trabajo::
 
@@ -77,7 +75,7 @@ pip install -r requirements/requirements_dev.txt
 En ***Google Colab*** se prioriza la experimentación rápida, instalando versiones más flexibles de librerías para probar distintos enfoques y explorar datos sin restricciones estrictas.
 En ***entorno de desarrollo local*** (VS Code), se utilizan versiones acotadas y controladas de las dependencias para garantizar ***reproducibilidad exacta***, coherencia con el flujo de producción y alineación con buenas prácticas de empresas de ML.
 
-### 2️⃣ Ejecución de scripts de entrenamiento
+### 2️. Ejecución de scripts de entrenamiento
 
 Los scripts dentro de `src/` están pensados para ejecutarse **como módulos de Python**, desde la raíz del proyecto (`TFM/`).
 
@@ -127,15 +125,6 @@ web/        # Archivos de la interfaz web
 
 - Revisar los cambios de otros miembros antes de integrarlos.
 
-- Para ejecutar correctamente los scripts dentro de `src/`, utilizar siempre:
-
-```
-cd path/to/TFM
-python -m src.models.train_model_lgbm
-```
-
-> **Nota:** El proyecto usa imports absolutos y ejecución como módulo para garantizar una arquitectura limpia y reproducible. La forma correcta de ejecución se documenta y automatiza, no se parchea dentro del código.
-
 ## Inferencia / API
 
 Para usar el modelo entrenado en inferencia:
@@ -174,6 +163,10 @@ Pipeline Guardado (src/models/lgbm_diabetes_pipeline.pkl)
       |
       v
 Inferencia / API (src/api)
+      |
+      v
+HTML (muestra el resultado en: <p id="prediction">)
+
 ```
 
 ## Autor
