@@ -11,7 +11,7 @@ El proyecto está diseñado siguiendo principios de **arquitectura modular y rep
 Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) desde la raíz del proyecto para asegurar la correcta resolución de imports absolutos y la reproducibilidad del flujo.
 
 ## Estructura del proyecto
-```
+
 ```
 TFM/
 ├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
@@ -50,7 +50,6 @@ TFM/
 │
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
-
 ```
 ---
 
