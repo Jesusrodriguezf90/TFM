@@ -51,7 +51,6 @@ TFM/
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 ```
----
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
@@ -71,13 +70,12 @@ Dependiendo del entorno de trabajo::
 ```
 !pip install -r requirements/requirements_colab.txt
 ```
-- **En entorno local (VS Code)*
+- **En entorno local (VS Code)**
 ```
 pip install -r requirements/requirements_dev.txt
 ```
 En ***Google Colab*** se prioriza la experimentación rápida, instalando versiones más flexibles de librerías para probar distintos enfoques y explorar datos sin restricciones estrictas.
 En ***entorno de desarrollo local*** (VS Code), se utilizan versiones acotadas y controladas de las dependencias para garantizar ***reproducibilidad exacta***, coherencia con el flujo de producción y alineación con buenas prácticas de empresas de ML.
----
 
 ### 2️⃣ Ejecución de scripts de entrenamiento
 
