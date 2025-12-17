@@ -20,11 +20,7 @@ TFM/
 │ ├─ model_training_v2.ipynb
 │ └─ transform_xpt_to_csv.ipynb
 │
-<<<<<<< HEAD
 ├─ src/          # Código fuente del proyecto (paquete Python)
-=======
-├─ src/          # Scripts de transformación y preprocesamiento de datos
->>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 │   ├─ __init__.py
 │   ├─ preprocessing/
 │   │        ├─ __init__.py
@@ -37,11 +33,7 @@ TFM/
 │   │        ├─ train_model_lgbm.py
 │   │        └─ lgbm_diabetes_pipeline.pkl
 │   │
-<<<<<<< HEAD
 │   └─ api/
-=======
-│   └─  api/
->>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
 │            ├─ __init__.py
 │            ├─ main.py
 │            ├─ load_model.py
@@ -53,18 +45,14 @@ TFM/
 │ └─ script.js
 │
 ├─ requirements/
-│            ├─ requirements_api.txt
+│            ├─ requirements_colab.txt
 │            └─ requirements_dev.txt
 │
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 
-<<<<<<< HEAD
----
-=======
-
 ```
->>>>>>> aa6ef240b6d777d893ee4c799d0a93cabe8ab5a3
+---
 
 ## Datos
 Los datos originales son grandes y se almacenan externamente (Google Drive).  
@@ -77,12 +65,19 @@ data/cleaned_dataset.csv
 ## Uso
 
 ### 1️⃣ Preparación del entorno
-Instalar las dependencias necesarias (ejemplo entorno de desarrollo):
 
-```bash
+Dependiendo del entorno de trabajo::
+
+- **En Google Colab**:
+```
+!pip install -r requirements/requirements_colab.txt
+```
+- **En entorno local (VS Code)*
+```
 pip install -r requirements/requirements_dev.txt
 ```
-
+En ***Google Colab*** se prioriza la experimentación rápida, instalando versiones más flexibles de librerías para probar distintos enfoques y explorar datos sin restricciones estrictas.
+En ***entorno de desarrollo local*** (VS Code), se utilizan versiones acotadas y controladas de las dependencias para garantizar ***reproducibilidad exacta***, coherencia con el flujo de producción y alineación con buenas prácticas de empresas de ML.
 ---
 
 ### 2️⃣ Ejecución de scripts de entrenamiento
