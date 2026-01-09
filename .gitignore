@@ -12,5 +12,5 @@ __pycache__/
 *.h5
 *.ckpt
 
-# Variables de entorno
+# Variables de entorno (actualmente no se tiene, pero de crearse, contendría información sensible como contraseñas de bases de datos)
 .env
