@@ -48,6 +48,8 @@ TFM/
 │            ├─ requirements_colab.txt
 │            └─ requirements_dev.txt
 │
+├─ Dockerfile           # Contenedor
+├─ start.sh             # Archivo para levantar API (en 8000) + web (en 8001) dentro del contenedor
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 ```
@@ -171,6 +173,6 @@ HTML (muestra el resultado en: <p id="prediction">)
 
 ## Autor
 
-Jesús Rodríguez  
-Rafael Risco  
-Cristina Crespo
+Jesús Rodríguez Fernández  
+Rafael Risco Murillo 
+Cristina Crespo Barreda
