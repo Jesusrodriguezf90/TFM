@@ -13,7 +13,7 @@ form.addEventListener("submit", async (e) => {
     });
 
     try {
-        const response = await fetch("http://127.0.0.1:8001/predict", {
+        const response = await fetch("http://127.0.0.1:8000/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
