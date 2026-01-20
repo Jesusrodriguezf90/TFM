@@ -16,8 +16,9 @@ Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) 
 TFM/
 ├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
 │ ├─ data_preprocessing.ipynb
-│ ├─ model_training_v1.ipynb
-│ ├─ model_training_v2.ipynb
+│ ├─ model_advanced_v1.ipynb
+│ ├─ model_base_v1.ipynb
+│ ├─ model_base_v2.ipynb
 │ └─ transform_xpt_to_csv.ipynb
 │
 ├─ src/          # Código fuente del proyecto (paquete Python)
@@ -126,6 +127,25 @@ web/        # Archivos de la interfaz web
 - Subir cambios solo cuando estén probados y funcionales.
 
 - Revisar los cambios de otros miembros antes de integrarlos.
+
+## Estilo de código
+
+Todos los notebooks y scripts Python de este proyecto han sido adaptados siguiendo
+las **buenas prácticas de PEP8**. Durante la verificación con `nbqa pylint`, cada
+notebook obtuvo una **puntuación de 10/10**, lo que asegura un código consistente,
+legible y mantenible.
+
+Entre las buenas prácticas aplicadas se incluyen:
+
+- Nombres de variables, funciones y clases consistentes y descriptivos.
+- Longitud de líneas controlada para facilitar la lectura.
+- Docstrings explicativos en funciones y clases.
+- Organización de imports según el estándar PEP8.
+- Eliminación de variables no utilizadas y advertencias de redefinitions.
+- Uso de pipelines y transformadores de forma clara y modular.
+
+Se recomienda a cualquier colaborador seguir utilizando herramientas como
+`pylint` o `nbqa pylint` para mantener la conformidad con PEP8 durante el desarrollo.
 
 ## Inferencia / API
 
