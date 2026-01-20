@@ -15,7 +15,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],              # Se permiten peticiones desde cualquier origen
     allow_credentials=True,
-    allow_methods=["*"],              # Se permiten métodos GET, POST, OPTIONS, etc.
+    allow_methods=["*"],              # Se permiten métodos GET, POST, OPTIONS...
     allow_headers=["*"],              # Se permiten todas las cabeceras
 )
 
@@ -24,11 +24,7 @@ pipeline = load_pipeline()
 
 @app.post("/predict")
 def predict(input_data: DiabetesInput):
-    """
-    Endpoint de predicción.
-    Recibe los datos de entrada validados por Pydantic,
-    ejecuta el modelo y devuelve la predicción en formato JSON.
-    """
+    # Endpoint de predicción. Recibe los datos de entrada validados por Pydantic, ejecuta el modelo y devuelve la predicción en formato JSON.
     try:
         # Se convierten los datos de entrada en un DataFrame de pandas respetando los alias definidos en el esquema Pydantic
         df = pd.DataFrame([input_data.model_dump(by_alias=True)])
