@@ -1,9 +1,25 @@
+"""
+Archivo: src/api/schemas.py
+Objetivo: Definición de esquemas Pydantic para la API de predicción de diabetes.
+Autor: Jesús Rodríguez
+Fecha: 16/12/2025
+"""
+
+# Librerías de validación de datos
 from pydantic import BaseModel, Field
 
+
 class DiabetesInput(BaseModel):
+    """
+    Esquema Pydantic para la entrada de datos de predicción de diabetes.
+
+    Contiene variables nominales, binarias, ordinales y numéricas
+    tal como se encuentran en el dataset BRFSS2015.
+    """
+
     # Variables nominales
     BPHIGH4: int
-    RACE: int = Field(alias="_RACE") # Pydantic v2 no permite campos que empiecen con _
+    RACE: int = Field(alias="_RACE")  # Pydantic v2 no permite campos que empiecen con "_"
 
     # Variables binarias
     BPMEDS: int
@@ -31,6 +47,5 @@ class DiabetesInput(BaseModel):
     FRUTSUM: float = Field(alias="_FRUTSUM")
     VEGESUM: float = Field(alias="_VEGESUM")
 
-    model_config = {
-        "populate_by_name": True  # Para usar dict(by_alias=True)
-    }
+    # Configuración del modelo
+    model_config = {"populate_by_name": True}  # Permite dict(by_alias=True)

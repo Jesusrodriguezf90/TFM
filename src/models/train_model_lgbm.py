@@ -10,35 +10,43 @@ from src.preprocessing.preprocessing_pipeline import (
     categorical_nominal,
     categorical_ordinal,
     binary_vars,
-    numeric_vars
+    numeric_vars,
 )
+
 
 # Se construye el pipeline completo de preprocessing + modelo LightGBM
 def build_lightgbm_pipeline():
 
-    nominal_pipeline_boosting = Pipeline(steps=[
-    ('imputer', SimpleImputer(strategy='most_frequent'))
-    ])
+    nominal_pipeline_boosting = Pipeline(
+        steps=[("imputer", SimpleImputer(strategy="most_frequent"))]
+    )
 
-    ordinal_transformer = Pipeline(steps=[
-        ('imputer', SimpleImputer(strategy='most_frequent'))
-    ])
+    ordinal_transformer = Pipeline(
+        steps=[("imputer", SimpleImputer(strategy="most_frequent"))]
+    )
 
-    numeric_pipeline = Pipeline(steps=[
-        ('cap_outliers', FunctionTransformer(
-            func=cap_outliers_numeric,
-            kw_args={'numeric_vars': numeric_vars},
-            validate=False
-        )),
-        ('imputer', SimpleImputer(strategy='median'))
-    ])
+    numeric_pipeline = Pipeline(
+        steps=[
+            (
+                "cap_outliers",
+                FunctionTransformer(
+                    func=cap_outliers_numeric,
+                    kw_args={"numeric_vars": numeric_vars},
+                    validate=False,
+                ),
+            ),
+            ("imputer", SimpleImputer(strategy="median")),
+        ]
+    )
 
-    preprocessor_boosting = ColumnTransformer(transformers=[
-        ('nom', nominal_pipeline_boosting, categorical_nominal),
-        ('bin', 'passthrough', binary_vars),
-        ('ord', ordinal_transformer, categorical_ordinal),
-        ('num', numeric_pipeline, numeric_vars)
-    ])
+    preprocessor_boosting = ColumnTransformer(
+        transformers=[
+            ("nom", nominal_pipeline_boosting, categorical_nominal),
+            ("bin", "passthrough", binary_vars),
+            ("ord", ordinal_transformer, categorical_ordinal),
+            ("num", numeric_pipeline, numeric_vars),
+        ]
+    )
 
     lgb_model = LGBMClassifier(
         n_estimators=200,
@@ -47,20 +55,23 @@ def build_lightgbm_pipeline():
         learning_rate=0.1,
         subsample=0.8,
         colsample_bytree=0.8,
-        class_weight='balanced',
+        class_weight="balanced",
         n_jobs=-1,
-        random_state=42
+        random_state=42,
     )
 
-    pipeline = Pipeline([
-        ('deterministic', FunctionTransformer(boosting_deterministic_preproc)),
-        ('preprocessor', preprocessor_boosting),
-        ('model', lgb_model)
-    ])
+    pipeline = Pipeline(
+        [
+            ("deterministic", FunctionTransformer(boosting_deterministic_preproc)),
+            ("preprocessor", preprocessor_boosting),
+            ("model", lgb_model),
+        ]
+    )
 
     return pipeline
 
-if __name__ == "__main__": # Para que se ejecute
+
+if __name__ == "__main__":  # Para que se ejecute
     import pandas as pd
     import joblib
     from sklearn.model_selection import train_test_split
@@ -76,7 +87,7 @@ if __name__ == "__main__": # Para que se ejecute
     df = pd.read_csv(DATA_PATH, encoding="Latin-1")
 
     # Se prepara el target
-    df['DIABETE3'] = df['DIABETE3'].map({1.0: 1, 3.0: 0})
+    df["DIABETE3"] = df["DIABETE3"].map({1.0: 1, 3.0: 0})
     X = df.drop("DIABETE3", axis=1)
     y = df["DIABETE3"]
 
