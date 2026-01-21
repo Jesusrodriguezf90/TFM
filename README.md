@@ -132,8 +132,8 @@ web/        # Archivos de la interfaz web
 
 Todos los notebooks y scripts Python de este proyecto han sido adaptados siguiendo
 las **buenas prácticas de PEP8**. Durante la verificación con `nbqa pylint`, cada
-notebook obtuvo una **puntuación de 10/10**, lo que asegura un código consistente,
-legible y mantenible.
+notebook y script de VS Code obtuvo una **puntuación de 10/10**, lo que asegura un 
+código consistente, legible y mantenible.
 
 Entre las buenas prácticas aplicadas se incluyen:
 
