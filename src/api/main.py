@@ -20,9 +20,12 @@ from pydantic import ValidationError
 
 # Funciones internas
 from src.api.load_model import load_pipeline
-from src.api.schemas import DiabetesInput
+from src.api.schemas import (
+    DiabetesRequest,
+    DiabetesPrediction
+)
 
-# Inicialización de la API
+# Inicialización API
 app = FastAPI(title="Diabetes Prediction API")
 
 # Habilitar CORS para frontend
@@ -34,31 +37,42 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Cargar el pipeline de ML entrenado
+# Servir frontend estático
+app.mount("/web", StaticFiles(directory="web", html=True), name="web")
+
+# Cargar pipeline entrenado
 pipeline = load_pipeline()
 
+
 # Endpoint de predicción
-@app.post("/predict")
-def predict(input_data: DiabetesInput):
+@app.post("/predict", response_model=DiabetesPrediction)
+def predict(request: DiabetesRequest):
     """
-    Recibe datos de entrada validados por Pydantic, ejecuta
-    el pipeline de ML y devuelve la predicción.
-
-    Args:
-        input_data (DiabetesInput): Datos del paciente.
-
-    Returns:
-        dict: Predicción {"prediction": 0 o 1}
+    Ejecuta el pipeline de ML y devuelve decisión,
+    probabilidad y threshold usado.
     """
     try:
-        # Convertir a DataFrame respetando alias de Pydantic
-        df = pd.DataFrame([input_data.model_dump(by_alias=True)])
+        # Convertir input a DataFrame respetando alias
+        df = pd.DataFrame([request.input_data.model_dump(by_alias=True)])
 
-        # Realizar predicción
-        prediction = pipeline.predict(df)
+        # Probabilidad clase positiva
+        proba = pipeline.predict_proba(df)[0][1]
 
-        # Devolver predicción como entero
-        return {"prediction": int(prediction[0])}
+        # Threshold validado por Pydantic
+        threshold = request.config.threshold
+
+        # Decisión final
+        decision = (
+            "Tiene Diabetes"
+            if proba >= threshold
+            else "No tiene Diabetes"
+        )
+
+        return DiabetesPrediction(
+            decision=decision,
+            probability=round(proba * 100, 2),  # %
+            threshold_used=threshold
+        )
 
     except ValidationError as ve:
         raise HTTPException(status_code=400, detail=str(ve)) from ve
@@ -66,6 +80,3 @@ def predict(input_data: DiabetesInput):
     except Exception as e:
         print("ERROR:", e)
         raise HTTPException(status_code=500, detail=str(e)) from e
-
-# Servir frontend estático
-app.mount("/web", StaticFiles(directory="web", html=True), name="web")

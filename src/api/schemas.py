@@ -1,6 +1,7 @@
 """
 Archivo: src/api/schemas.py
-Objetivo: Definición de esquemas Pydantic para la API de predicción de diabetes.
+Objetivo: Definición de esquemas Pydantic para la
+API de predicción de diabetes.
 Autor: Jesús Rodríguez
 Fecha: 16/12/2025
 """
@@ -19,7 +20,8 @@ class DiabetesInput(BaseModel):
 
     # Variables nominales
     BPHIGH4: int
-    RACE: int = Field(alias="_RACE")  # Pydantic v2 no permite campos que empiecen con "_"
+    # Pydantic v2 no permite campos que empiecen con "_"
+    RACE: int = Field(alias="_RACE")
 
     # Variables binarias
     BPMEDS: int
@@ -48,4 +50,43 @@ class DiabetesInput(BaseModel):
     VEGESUM: float = Field(alias="_VEGESUM")
 
     # Configuración del modelo
-    model_config = {"populate_by_name": True}  # Permite dict(by_alias=True)
+    model_config = {"populate_by_name": True}  # Permite usar alias al exportar
+
+
+class InferenceConfig(BaseModel):
+    """
+    Configuración de inferencia del modelo.
+
+    El threshold define el punto de corte a partir del cual
+    una probabilidad predicha se interpreta como 'Diabetes'.
+    """
+
+    threshold: float = Field(
+        default=0.4733,
+        ge=0.0,
+        le=1.0,
+        description="Umbral de decisión para la probabilidad de diabetes"
+    )
+
+
+class DiabetesRequest(BaseModel):
+    """
+    Esquema completo de entrada para la predicción.
+
+    Se separan explícitamente:
+    - input_data: variables clínicas del paciente
+    - config: parámetros de inferencia (threshold)
+    """
+
+    input_data: DiabetesInput
+    config: InferenceConfig
+
+
+class DiabetesPrediction(BaseModel):
+    """
+    Esquema de salida de la API de predicción.
+    """
+
+    decision: str
+    probability: float
+    threshold_used: float
