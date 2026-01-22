@@ -216,6 +216,20 @@
         <option value="6.0">6 o más al día</option>
     </select>
 
+    <label for="threshold">Selecciona el umbral (Threshold) para la predicción:</label>
+    <select id="threshold" name="threshold" required>
+        <option value="0.1">10%</option>
+        <option value="0.2">20%</option>
+        <option value="0.3">30%</option>
+        <option value="0.4">40%</option>
+        <option value="0.4733" selected>47.33% (por defecto)</option>
+        <option value="0.5">50%</option>
+        <option value="0.6">60%</option>
+        <option value="0.7">70%</option>
+        <option value="0.8">80%</option>
+        <option value="0.9">90%</option>
+    </select>
+
     <button type="submit">Predecir</button>
 </form>
 
