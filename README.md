@@ -16,6 +16,7 @@ Todos los scripts dentro de `src/` deben ejecutarse como módulos (`python -m`) 
 TFM/
 ├─ notebooks/ # Notebooks de análisis exploratorio y pruebas de modelos
 │ ├─ data_preprocessing.ipynb
+│ ├─ data_preprocessing_spark.ipynb
 │ ├─ model_advanced_v1.ipynb
 │ ├─ model_base_v1.ipynb
 │ ├─ model_base_v2.ipynb
@@ -50,7 +51,7 @@ TFM/
 │            └─ requirements_dev.txt
 │
 ├─ Dockerfile           # Contenedor
-├─ start.sh             # Archivo para levantar API (en 8000) + web (en 8001) dentro del contenedor
+├─ start.sh             # Archivo para levantar API (en 8000) + web (en 8000) dentro del contenedor
 ├─ README.md      # Este archivo
 └─ .gitignore     # Archivos ignorados
 ```
