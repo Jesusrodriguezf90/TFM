@@ -74,7 +74,7 @@ form.addEventListener("submit", async (e) => {
         const prediction = await response.json();
         console.log("Respuesta de la API:", prediction);
 
-        result.textContent = `Decisión: ${prediction.decision} ` +
+        result.textContent = `Recomendación: ${prediction.decision} ` +
                              `(${prediction.probability}%) ` +
                              `umbral usado: ${prediction.threshold_used}`;
 

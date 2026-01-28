@@ -63,9 +63,9 @@ def predict(request: DiabetesRequest):
 
         # Decisión final
         decision = (
-            "Tiene Diabetes"
+            "Realizar prueba HbA1c"
             if proba >= threshold
-            else "No tiene Diabetes"
+            else "No realizar prueba HbA1c"
         )
 
         return DiabetesPrediction(
