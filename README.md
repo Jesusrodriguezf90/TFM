@@ -18,6 +18,7 @@ TFM/
 │ ├─ data_preprocessing.ipynb
 │ ├─ data_preprocessing_spark.ipynb
 │ ├─ model_advanced_v1.ipynb
+│ ├─ model_advanced_mlp_v1
 │ ├─ model_base_v1.ipynb
 │ ├─ model_base_v2.ipynb
 │ └─ transform_xpt_to_csv.ipynb
