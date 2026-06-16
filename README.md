@@ -1,5 +1,3 @@
-# TFM: Modelo de ML para detección de diabetes
-
 ---
 title: Detección de Riesgo de Diabetes
 emoji: 🩺
@@ -10,18 +8,10 @@ sdk_version: 6.17.3
 app_file: app.py
 pinned: false
 license: mit
-tags:
-  - diabetes
-  - healthcare
-  - lightgbm
-  - scikit-learn
-  - tabular-classification
-  - shap
-  - brfss
-  - spanish
-language:
-  - es
+short_description: Modelo de ML para detección de diabetes
 ---
+
+# TFM: Modelo de ML para detección de diabetes
 
 ## Descripción
 Este proyecto tiene como objetivo desarrollar un modelo de Machine Learning para clasificar individuos en:
